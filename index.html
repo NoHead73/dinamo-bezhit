@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,18 @@
     <!-- ШАПКА САЙТА -->
     <header class="header">
         <div class="header__inner">
+
+            <!-- Бургер — только для мобилки -->
+            <button class="header__burger" aria-label="Меню" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <a href="#" class="header__logo">
                 <img src="images/logo.png" alt="Динамо Бежит" class="header__logo-img">
             </a>
+
             <nav class="header__nav">
                 <a href="#about" class="header__link">О нас</a>
                 <a href="#events" class="header__link">Расписание</a>
@@ -21,6 +30,7 @@
                 <a href="#faq" class="header__link">Контакты</a>
                 <a href="#" class="header__link">Магазин</a>
             </nav>
+
             <div class="header__icons">
                 <a href="#" class="header__icon">
                     <img src="images/icon-search.png" alt="Поиск">
@@ -29,7 +39,17 @@
                     <img src="images/icon-profile.png" alt="Профиль">
                 </a>
             </div>
+
         </div>
+
+        <!-- Мобильное меню (открывается по бургеру) -->
+        <nav class="header__mobile-menu">
+            <a href="#about" class="header__mobile-link">О нас</a>
+            <a href="#events" class="header__mobile-link">Расписание</a>
+            <a href="#trainers" class="header__mobile-link">Тренеры</a>
+            <a href="#faq" class="header__mobile-link">Контакты</a>
+            <a href="#" class="header__mobile-link">Магазин</a>
+        </nav>
     </header>
 
     <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
