@@ -1,4 +1,4 @@
-﻿/* ===== ПОДКЛЮЧЕНИЕ ШРИФТА ===== */
+/* ===== ПОДКЛЮЧЕНИЕ ШРИФТА ===== */
 @font-face {
     font-family: 'Rostov';
     src: url('fonts/Rostov.ttf') format('truetype');
@@ -61,6 +61,30 @@ ul { list-style: none; }
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 100px;
+    position: relative;
+}
+
+/* Бургер — скрыт на десктопе */
+.header__burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-direction: column;
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #000000;
+    transition: all 0.3s;
 }
 
 .header__logo-img { height: 36px; width: auto; }
@@ -86,9 +110,39 @@ ul { list-style: none; }
 
 .header__icons { display: flex; gap: 16px; align-items: center; }
 
-/* Иконки — уменьшены на ~25%, гармонируют с высотой кнопок меню */
 .header__icon { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; }
 .header__icon img { width: 30px; height: 30px; }
+
+/* Мобильное меню — скрыто на десктопе */
+.header__mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ADFF3B;
+    flex-direction: column;
+    padding: 16px 20px 24px;
+    gap: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    z-index: 200;
+}
+
+.header__mobile-menu.is-open { display: flex; }
+
+.header__mobile-link {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    padding: 12px 16px;
+    border: 2px solid #000000;
+    border-radius: 40px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.header__mobile-link:hover { background: #0033FF; color: #ffffff; border-color: #0033FF; }
 
 /* ===== КНОПКИ ===== */
 .btn {
@@ -118,7 +172,7 @@ ul { list-style: none; }
 .btn--primary:hover { background: #ffffff; transform: translateY(-2px); }
 
 /* ============================================================
-   ГЛАВНЫЙ ЭКРАН — 1440 × 685
+   ГЛАВНЫЙ ЭКРАН — 1440 × 685 (ДЕСКТОП)
    ============================================================ */
 
 .hero {
@@ -137,7 +191,6 @@ ul { list-style: none; }
     margin: 0 auto;
 }
 
-/* Бумага */
 .hero__paper {
     position: absolute;
     left: -240px;
@@ -151,7 +204,6 @@ ul { list-style: none; }
     pointer-events: none;
 }
 
-/* Диалог */
 .hero__bubbles {
     position: absolute;
     left: 758px;
@@ -214,7 +266,6 @@ ul { list-style: none; }
     line-height: 0.9;
 }
 
-/* Вступление */
 .hero__title {
     position: absolute;
     left: 40px;
@@ -282,7 +333,6 @@ ul { list-style: none; }
     display: block;
 }
 
-/* Бегун */
 .hero__runner {
     position: absolute;
     left: 1191px;
@@ -294,7 +344,6 @@ ul { list-style: none; }
     z-index: 4;
 }
 
-/* Кнопка — поверх следующего блока */
 .hero__btn {
     position: absolute;
     left: 878px;
@@ -322,7 +371,7 @@ ul { list-style: none; }
 .hero__btn:hover { background: #ffffff; }
 
 /* ============================================================
-   АДАПТИВ HERO
+   АДАПТИВ HERO — ПЛАНШЕТ (768-1439)
    ============================================================ */
 
 @media (max-width: 1439px) and (min-width: 1024px) {
@@ -349,120 +398,8 @@ ul { list-style: none; }
     }
 }
 
-@media (max-width: 767px) and (min-width: 480px) {
-    .hero { height: calc(685px * 0.42); }
-    .hero__stage {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        margin: 0;
-        transform: translateX(-50%) scale(0.42);
-        transform-origin: top center;
-    }
-}
-
-@media (max-width: 479px) {
-    .hero { height: calc(685px * 0.3); }
-    .hero__stage {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        margin: 0;
-        transform: translateX(-50%) scale(0.3);
-        transform-origin: top center;
-    }
-}
-
-/* ===== ОСТАЛЬНЫЕ СЕКЦИИ ===== */
-@media (max-width: 1024px) {
-    .container { padding: 0 40px; }
-    .section-title { font-size: 48px; margin-bottom: 40px; }
-    .header { height: auto; padding: 12px 0; }
-    .header__inner { padding: 0 20px; flex-wrap: wrap; }
-    .header__link { font-size: 14px; padding: 6px 12px; }
-    .header__icon { width: 32px; height: 32px; }
-    .header__icon img { width: 24px; height: 24px; }
-
-    .events__grid { grid-template-columns: repeat(2, 1fr); }
-    .about__inner { grid-template-columns: 1fr; gap: 40px; }
-    .join__title { font-size: 48px; }
-    .join__cards { grid-template-columns: repeat(2, 1fr); }
-    .with-us__inner { grid-template-columns: 1fr; gap: 40px; }
-    .with-us__title { font-size: 56px; }
-    .trainers__inner { grid-template-columns: 1fr; gap: 40px; }
-    .trainers__team { max-width: 400px; }
-    .merch-feature__inner { grid-template-columns: 1fr; gap: 40px; }
-    .merch__grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 640px) {
-    .container { padding: 0 16px; }
-    .section-title { font-size: 28px; margin-bottom: 24px; }
-
-    .header { padding: 10px 0; }
-    .header__inner { flex-wrap: wrap; gap: 10px; padding: 0 12px; }
-    .header__logo-img { height: 26px; }
-    .header__nav { order: 3; width: 100%; gap: 6px; flex-wrap: wrap; justify-content: center; }
-    .header__link { font-size: 12px; padding: 6px 12px; border-width: 1px; }
-    .header__icon { width: 28px; height: 28px; }
-    .header__icon img { width: 20px; height: 20px; }
-
-    .events { padding: 50px 0; }
-    .events__grid { grid-template-columns: 1fr; gap: 16px; }
-    .event-card { padding: 16px; gap: 14px; border-radius: 20px; }
-    .event-card__title { font-size: 20px; }
-    .event-card__btn { font-size: 16px; padding: 10px 20px; width: 100%; align-self: stretch; }
-    .about { padding: 50px 0; }
-    .about__text { font-size: 15px; }
-    .about__gallery { gap: 8px; }
-    .join { padding: 50px 0; border-radius: 32px 32px 0 0; }
-    .join__title { font-size: 28px; margin-bottom: 24px; }
-    .join__cards { grid-template-columns: 1fr; gap: 16px; }
-    .join__card { padding: 16px; gap: 14px; }
-    .join__card-title { font-size: 22px; }
-    .join__card-text { font-size: 14px; }
-    .with-us { padding: 50px 0; }
-    .with-us__inner { grid-template-columns: 1fr; gap: 20px; }
-    .with-us__title { font-size: 36px; }
-    .with-us__input { padding: 12px 16px; font-size: 14px; }
-    .with-us__label { font-size: 14px; }
-    .with-us__checkbox { font-size: 12px; }
-    .with-us__btn { padding: 14px 20px; font-size: 18px; }
-    .trainers { padding: 50px 0; }
-    .trainer-card { grid-template-columns: 1fr; padding: 20px; text-align: center; gap: 16px; border-radius: 24px; }
-    .trainer-card__photo { margin: 0 auto; width: 120px; height: 120px; }
-    .trainer-card__name { font-size: 24px; }
-    .trainer-card__list li { text-align: left; font-size: 13px; }
-    .trainers__team { max-width: 100%; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .merch-feature { padding: 50px 0; }
-    .merch-feature__price { font-size: 40px; }
-    .merch-feature__price-row { gap: 16px; align-items: center; justify-content: space-between; }
-    .merch-feature__text { font-size: 14px; }
-    .merch { padding: 50px 0; }
-    .merch__grid { grid-template-columns: 1fr; gap: 20px; }
-    .merch__title { font-size: 20px; }
-    .merch__price { font-size: 24px; }
-    .merch__btn { padding: 10px 20px; font-size: 14px; }
-    .faq { padding: 50px 0; }
-    .faq__item { padding: 16px; }
-    .faq__question { font-size: 15px; gap: 10px; }
-    .faq__question::after { font-size: 22px; }
-    .faq__answer { font-size: 13px; }
-    .contact { padding: 50px 0; }
-    .contact__buttons { flex-direction: column; gap: 12px; }
-    .contact__btn { width: 100%; padding: 12px 20px; font-size: 18px; }
-
-    .footer { padding: 12px 20px; }
-    .footer__inner { flex-direction: column; gap: 10px; text-align: center; }
-    .footer__contacts { gap: 10px; justify-content: center; }
-    .footer__link { font-size: 12px; }
-    .footer__logo-img { height: 22px; margin: 0 auto; }
-    .footer__social { width: 28px; height: 28px; }
-    .footer__social img { width: 14px; height: 14px; }
-}
-
 /* ============================================================
-   БАЗОВЫЕ СТИЛИ ОСТАЛЬНЫХ СЕКЦИЙ
+   ОСТАЛЬНЫЕ СЕКЦИИ — БАЗОВЫЕ СТИЛИ (ДЕСКТОП)
    ============================================================ */
 
 .events { background: #000000; padding: 100px 0; }
@@ -750,10 +687,6 @@ ul { list-style: none; }
 .contact__buttons { display: flex; gap: 24px; flex-wrap: wrap; }
 .contact__btn { padding: 18px 40px; font-size: 24px; }
 
-/* ============================================================
-   ФУТЕР
-   ============================================================ */
-
 .footer {
     background: #0033FF;
     padding: 16px 100px;
@@ -791,3 +724,249 @@ ul { list-style: none; }
 
 .footer__social:hover { transform: scale(1.1); }
 .footer__social img { width: 14px; height: 14px; }
+
+/* ============================================================
+   ============================================================
+   МОБИЛЬНАЯ ВЕРСИЯ — @media (max-width: 767px)
+   ============================================================
+   ============================================================ */
+
+@media (max-width: 767px) {
+
+    /* ===== ОБЩИЕ ===== */
+    .container {
+        padding: 0 16px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+
+    /* ===== ШАПКА МОБИЛЬНАЯ ===== */
+    .header {
+        height: 68px;
+        padding: 0;
+        position: relative;
+    }
+
+    .header__inner {
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        height: 100%;
+    }
+
+    /* Бургер — показать */
+    .header__burger {
+        display: flex;
+        flex: 0 0 auto;
+        order: 1;
+    }
+
+    /* Лого — по центру */
+    .header__logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+
+    .header__logo-img { height: 32px; }
+
+    /* Менюшка — скрыть */
+    .header__nav { display: none; }
+
+    /* Иконки — справа */
+    .header__icons {
+        margin-left: auto;
+        order: 3;
+        gap: 12px;
+    }
+
+    .header__icon { width: 32px; height: 32px; }
+    .header__icon img { width: 22px; height: 22px; }
+
+    /* ===== HERO МОБИЛЬНЫЙ ===== */
+    .hero {
+        background: #0033FF;
+        height: 588px;
+        position: relative;
+        overflow: visible;
+        display: block;
+    }
+
+    .hero__stage {
+        width: 100%;
+        height: 588px;
+        position: relative;
+        margin: 0;
+        transform: none;
+        left: auto;
+        top: auto;
+    }
+
+    /* Бумага — скрыть на мобилке (нет в макете) */
+    .hero__paper {
+        display: none;
+    }
+
+    /* Пузыри — по мобильному макету */
+    .hero__bubbles {
+        position: absolute;
+        left: 3%;
+        top: 14%;
+        width: 70%;
+        height: auto;
+        aspect-ratio: 426 / 259;
+        z-index: 6;
+    }
+
+    .hero__bubble { position: absolute; }
+
+    .hero__bubble--1 {
+        left: 0;
+        top: 0;
+        width: 69.5%;
+        height: 91%;
+    }
+
+    .hero__bubble--2 {
+        left: 51%;
+        top: 35.5%;
+        width: 49%;
+        height: 64.5%;
+    }
+
+    .hero__bubble-text {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .hero__bubble-text--1 {
+        top: 19%;
+        left: 15%;
+        width: 70%;
+    }
+
+    .hero__bubble-text--2 {
+        top: 22%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 0.9;
+    }
+
+    /* Текст «Мы объединились» — скрыть на мобилке */
+    .hero__title {
+        display: none;
+    }
+
+    /* Бегун — по центру внизу */
+    .hero__runner {
+        position: absolute;
+        left: 27%;
+        top: 50%;
+        width: 54%;
+        height: auto;
+        max-width: none;
+        object-fit: contain;
+        z-index: 4;
+    }
+
+    /* Кнопка — зелёная, снизу, поверх границы */
+    .hero__btn {
+        position: absolute;
+        left: 14.7%;
+        top: 93%;
+        width: 71%;
+        height: 40px;
+        padding: 0;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        border-radius: 20px;
+        border: 2px solid #000000;
+        background: #ADFF3B;
+        color: #000000;
+        z-index: 50;
+    }
+
+    /* ===== СОБЫТИЯ ===== */
+    .events { padding: 50px 0; }
+    .events__grid { grid-template-columns: 1fr; gap: 16px; }
+    .event-card { padding: 16px; gap: 14px; border-radius: 20px; }
+    .event-card__title { font-size: 20px; }
+    .event-card__btn { font-size: 14px; padding: 10px 20px; }
+
+    /* ===== О НАС ===== */
+    .about { padding: 50px 0; }
+    .about__inner { grid-template-columns: 1fr; gap: 24px; }
+    .about__text { font-size: 15px; }
+    .about__gallery { gap: 8px; }
+
+    /* ===== JOIN ===== */
+    .join { padding: 50px 0; border-radius: 32px 32px 0 0; }
+    .join__title { font-size: 28px; margin-bottom: 24px; }
+    .join__cards { grid-template-columns: 1fr; gap: 16px; }
+    .join__card { padding: 16px; gap: 14px; }
+    .join__card-title { font-size: 20px; }
+    .join__card-text { font-size: 14px; }
+
+    /* ===== WITH-US ===== */
+    .with-us { padding: 50px 0; }
+    .with-us__inner { grid-template-columns: 1fr; gap: 24px; }
+    .with-us__title { font-size: 32px; }
+    .with-us__input { padding: 12px 16px; font-size: 14px; }
+    .with-us__label { font-size: 14px; }
+    .with-us__checkbox { font-size: 12px; }
+    .with-us__btn { padding: 14px 20px; font-size: 16px; }
+
+    /* ===== TRAINERS ===== */
+    .trainers { padding: 50px 0; }
+    .trainers__inner { grid-template-columns: 1fr; gap: 24px; }
+    .trainer-card { grid-template-columns: 1fr; padding: 20px; text-align: center; gap: 16px; border-radius: 24px; }
+    .trainer-card__photo { margin: 0 auto; width: 160px; height: 160px; }
+    .trainer-card__name { font-size: 22px; }
+    .trainer-card__list li { text-align: left; font-size: 13px; }
+    .trainers__team { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+    /* ===== MERCH-FEATURE ===== */
+    .merch-feature { padding: 50px 0; }
+    .merch-feature__inner { grid-template-columns: 1fr; gap: 24px; }
+    .merch-feature__price { font-size: 40px; }
+    .merch-feature__price-row { gap: 16px; justify-content: space-between; }
+    .merch-feature__text { font-size: 14px; }
+
+    /* ===== MERCH ===== */
+    .merch { padding: 50px 0; }
+    .merch__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .merch__title { font-size: 16px; }
+    .merch__price { font-size: 20px; }
+    .merch__btn { padding: 8px 16px; font-size: 13px; }
+
+    /* ===== FAQ ===== */
+    .faq { padding: 50px 0; }
+    .faq__item { padding: 16px; }
+    .faq__question { font-size: 15px; gap: 10px; }
+    .faq__question::after { font-size: 22px; }
+    .faq__answer { font-size: 13px; }
+
+    /* ===== CONTACT ===== */
+    .contact { padding: 50px 0; }
+    .contact__buttons { flex-direction: column; gap: 12px; }
+    .contact__btn { width: 100%; padding: 14px 20px; font-size: 16px; }
+
+    /* ===== FOOTER ===== */
+    .footer { padding: 16px 20px; }
+    .footer__inner { flex-direction: column; gap: 12px; text-align: center; }
+    .footer__contacts { gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .footer__link { font-size: 13px; }
+    .footer__logo-img { height: 26px; }
+    .footer__socials { justify-content: center; }
+    .footer__social { width: 32px; height: 32px; }
+    .footer__social img { width: 16px; height: 16px; }
+}
