@@ -782,12 +782,14 @@ ul { list-style: none; }
     .header__icon img { width: 22px; height: 22px; }
 
     /* ===== HERO МОБИЛЬНЫЙ — СЦЕНА 320×588 ===== */
+    /* Увеличиваем сцену через scale = 100vw / 300 — так она станет на 6.7% крупнее */
     .hero {
         background: #0033FF;
         width: 100%;
-        height: calc(588px * (100vw / 320));
+        height: calc(588px * (100vw / 300));
         position: relative;
         overflow: visible;
+        z-index: 1;
     }
 
     .hero__stage {
@@ -796,7 +798,7 @@ ul { list-style: none; }
         position: absolute;
         top: 0;
         left: 0;
-        transform: scale(calc(100vw / 320));
+        transform: scale(calc(100vw / 300));
         transform-origin: top left;
         margin: 0;
     }
@@ -805,9 +807,9 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* ===== ПУЗЫРИ (обе картинки — bubble-1.png, вторая отражена) ===== */
+    /* ===== ПУЗЫРИ ===== */
 
-    /* Пузырь 1 — левый верхний, картинка отражена по X (хвостик влево) */
+    /* Пузырь 1 — левый верхний, БЕЗ отражения (у картинки bubble-1 хвостик уже влево по Figma) */
     .hero__bubble--1 {
         left: 10px;
         top: 80px;
@@ -815,11 +817,7 @@ ul { list-style: none; }
         height: 182px;
     }
 
-    .hero__bubble--1 .hero__bubble-img {
-        transform: scaleX(-1);
-    }
-
-    /* Текст «ДИНАМО БЕЖИТ?» — позиция внутри пузыря */
+    /* Текст «ДИНАМО БЕЖИТ?» */
     .hero__bubble-text--1 {
         top: 39px;
         left: 44px;
@@ -830,7 +828,7 @@ ul { list-style: none; }
         text-align: left;
     }
 
-    /* Пузырь 2 — правый нижний, картинка без отражения (хвостик вправо) */
+    /* Пузырь 2 — правый нижний, ОТРАЖЁН по X (хвостик вправо) */
     .hero__bubble--2 {
         left: 137px;
         top: 178px;
@@ -838,7 +836,11 @@ ul { list-style: none; }
         height: 138px;
     }
 
-    /* Текст «ВСЁ БЕГУТ!» — позиция внутри пузыря */
+    .hero__bubble--2 .hero__bubble-img {
+        transform: scaleX(-1);
+    }
+
+    /* Текст «ВСЁ БЕГУТ!» */
     .hero__bubble-text--2 {
         top: 26px;
         left: 51px;
@@ -853,7 +855,7 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* ===== БЕГУН (по Figma: 172×254, left 86, top 294) ===== */
+    /* ===== БЕГУН ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
@@ -868,17 +870,20 @@ ul { list-style: none; }
         z-index: 4;
     }
 
-    /* ===== КНОПКА (по Figma: 227×40, left 47, top 548) ===== */
+    /* ===== КНОПКА — вылезает за пределы hero, поверх секции События ===== */
     .hero__btn {
         position: absolute;
         left: 47px;
         top: 548px;
         width: 227px;
         height: 40px;
-        padding: 0;
-        font-size: 16px;
+        padding: 4px 8px;
+        font-family: 'Rostov', Arial, sans-serif;
+        font-size: 14px;
         font-weight: 400;
-        letter-spacing: 0.03em;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-align: center;
         border-radius: 20px;
         border: 2px solid #000000;
         background: #ADFF3B;
@@ -887,6 +892,7 @@ ul { list-style: none; }
         align-items: center;
         justify-content: center;
         z-index: 50;
+        white-space: nowrap;
     }
 
     /* ===== СОБЫТИЯ ===== */
