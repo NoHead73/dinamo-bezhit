@@ -52,29 +52,24 @@
 
     <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
     <section class="hero">
+
         <div class="hero__stage">
 
             <img src="images/paper-bg.png" alt="" class="hero__paper">
 
-            <!-- Бегун для ДЕСКТОПА -->
             <img src="images/hero-runner.png" alt="Бегун" class="hero__runner hero__runner--desktop">
-
-            <!-- Бегун для МОБИЛКИ -->
             <img src="images/Борзаковский 1.png" alt="Бегун" class="hero__runner hero__runner--mobile">
 
-            <!-- Пузырь 1 — та же картинка, что и пузырь 2, но отражена по X через CSS -->
             <div class="hero__bubble hero__bubble--1">
                 <img src="images/bubble-1.png" alt="" class="hero__bubble-img">
                 <span class="hero__bubble-text hero__bubble-text--1">ДИНАМО<br>БЕЖИТ?</span>
             </div>
 
-            <!-- Пузырь 2 — та же картинка без отражения -->
             <div class="hero__bubble hero__bubble--2">
                 <img src="images/bubble-1.png" alt="" class="hero__bubble-img">
                 <span class="hero__bubble-text hero__bubble-text--2">ВСЕ<br>БЕГУТ!</span>
             </div>
 
-            <!-- Вступление (только для десктопа) -->
             <div class="hero__title">
                 <span class="hero__title-my">МЫ</span>
                 <span class="hero__title-blue">объединились,</span>
@@ -82,9 +77,11 @@
                 <span class="hero__title-goals">новые цели.</span>
             </div>
 
-            <a href="#signup" class="btn hero__btn">Записаться на тренировку</a>
-
         </div>
+
+        <!-- Кнопка — вынесена из stage, чтобы вылезать на секцию «События» -->
+        <a href="#signup" class="btn hero__btn">Записаться на тренировку</a>
+
     </section>
 
     <!-- СОБЫТИЯ -->
