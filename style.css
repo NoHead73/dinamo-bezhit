@@ -781,9 +781,12 @@ ul { list-style: none; }
     .header__icon { width: 32px; height: 32px; }
     .header__icon img { width: 22px; height: 22px; }
 
-    /* ===== HERO МОБИЛЬНЫЙ ===== */
+    /* ===== HERO МОБИЛЬНЫЙ =====
+       Используем zoom вместо transform — zoom в Safari работает корректно
+       и не глючит с translate.
+    */
 
-    /* Синий фон — высотой до центра кнопки. Кнопка top 548 + 20 = 568 */
+    /* .hero центрирует группу по горизонтали */
     .hero {
         background: #0033FF;
         width: 100%;
@@ -791,27 +794,30 @@ ul { list-style: none; }
         position: relative;
         overflow: visible;
         z-index: 1;
+        display: flex;
+        justify-content: center;
     }
 
-    /* Внутренняя сцена 320×650, масштабируется на 30% и центрируется */
-    /* Вся группа (пузыри + бегун + кнопка) масштабируется как единое целое */
+    /* .hero__stage — группа, которая увеличивается и позиционируется */
     .hero__stage {
         width: 320px;
         height: 650px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%) scale(1.3) scale(calc(100vw / 320));
-        transform-origin: top center;
+        position: relative;
         margin: 0;
+        /* Увеличиваем всю группу через zoom (работает в Safari) */
+        zoom: 1.3;
+        /* Пропорционально масштабируем под ширину экрана */
+        transform: none;
         overflow: visible;
     }
+
+    /* Оборачиваем stage в scale через ::before — не нужен, zoom сам сработает */
 
     .hero__paper {
         display: none;
     }
 
-    /* ===== ПУЗЫРИ (координаты как были — группа увеличится целиком) ===== */
+    /* ===== ПУЗЫРИ ===== */
 
     .hero__bubble--1 {
         left: 10px;
@@ -871,9 +877,6 @@ ul { list-style: none; }
     }
 
     /* ===== КНОПКА ===== */
-    /* top 548 = низ бегуна (294 + 254) */
-    /* height 40, низ кнопки на 588 */
-    /* Hero (синий) высотой 568×1.3 = 738.4 — центр кнопки 568×1.3 = 738.4 — на этом же уровне */
     .hero__btn {
         position: absolute;
         left: 47px;
