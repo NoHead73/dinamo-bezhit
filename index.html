@@ -12,7 +12,6 @@
     <header class="header">
         <div class="header__inner">
 
-            <!-- Бургер — только для мобилки -->
             <button class="header__burger" aria-label="Меню" type="button">
                 <span></span>
                 <span></span>
@@ -42,7 +41,6 @@
 
         </div>
 
-        <!-- Мобильное меню (открывается по бургеру) -->
         <nav class="header__mobile-menu">
             <a href="#about" class="header__mobile-link">О нас</a>
             <a href="#events" class="header__mobile-link">Расписание</a>
@@ -76,7 +74,11 @@
                 <span class="hero__title-goals">новые цели.</span>
             </div>
 
-            <img src="images/hero-runner.png" alt="Бегун" class="hero__runner">
+            <!-- Бегун для ДЕСКТОПА -->
+            <img src="images/hero-runner.png" alt="Бегун" class="hero__runner hero__runner--desktop">
+
+            <!-- Бегун для МОБИЛКИ -->
+            <img src="images/Борзаковский 1.png" alt="Бегун" class="hero__runner hero__runner--mobile">
 
             <a href="#signup" class="btn hero__btn">Записаться на тренировку</a>
 
