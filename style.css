@@ -783,27 +783,26 @@ ul { list-style: none; }
 
     /* ===== HERO МОБИЛЬНЫЙ ===== */
 
-    /* Синий фон заканчивается ровно на центре кнопки:
-       кнопка на top: 548, height: 40 → центр = 568.
-       Значит hero height = 568 (в масштабе). */
+    /* Синий фон — высотой до центра кнопки. Кнопка top 548 + 20 = 568 */
     .hero {
         background: #0033FF;
         width: 100%;
-        height: calc(568px * (100vw / 320));
+        height: calc(568px * 1.3 * (100vw / 320));
         position: relative;
         overflow: visible;
         z-index: 1;
     }
 
-    /* Внутренняя сцена 320×650 (выше, чем hero — чтобы кнопка не обрезалась снизу) */
+    /* Внутренняя сцена 320×650, масштабируется на 30% и центрируется */
+    /* Вся группа (пузыри + бегун + кнопка) масштабируется как единое целое */
     .hero__stage {
         width: 320px;
         height: 650px;
         position: absolute;
         top: 0;
-        left: 0;
-        transform: scale(calc(100vw / 320));
-        transform-origin: top left;
+        left: 50%;
+        transform: translateX(-50%) scale(1.3) scale(calc(100vw / 320));
+        transform-origin: top center;
         margin: 0;
         overflow: visible;
     }
@@ -812,7 +811,7 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* ===== ПУЗЫРИ ===== */
+    /* ===== ПУЗЫРИ (координаты как были — группа увеличится целиком) ===== */
 
     .hero__bubble--1 {
         left: 10px;
@@ -873,8 +872,8 @@ ul { list-style: none; }
 
     /* ===== КНОПКА ===== */
     /* top 548 = низ бегуна (294 + 254) */
-    /* height 40, значит низ кнопки на 588 */
-    /* Низ hero (синего фона) = 568, значит кнопка наполовину выходит на чёрную секцию */
+    /* height 40, низ кнопки на 588 */
+    /* Hero (синий) высотой 568×1.3 = 738.4 — центр кнопки 568×1.3 = 738.4 — на этом же уровне */
     .hero__btn {
         position: absolute;
         left: 47px;
