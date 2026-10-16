@@ -788,36 +788,37 @@ ul { list-style: none; }
     .header__icon img { width: 22px; height: 22px; }
 
     /* ===== HERO МОБИЛЬНЫЙ ===== */
+    /* Фиксированная сцена 320×588, масштабируется под ширину экрана */
     .hero {
         background: #0033FF;
-        height: 588px;
+        width: 100%;
+        height: calc(588px * (100vw / 320));
         position: relative;
         overflow: visible;
-        display: block;
     }
 
     .hero__stage {
-        width: 100%;
+        width: 320px;
         height: 588px;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(calc(100vw / 320));
+        transform-origin: top left;
         margin: 0;
-        transform: none;
-        left: auto;
-        top: auto;
     }
 
     .hero__paper {
         display: none;
     }
 
-    /* Пузыри — по Figma (227/320 = 71% ширины) */
+    /* Пузыри — точные координаты из Figma для 320px */
     .hero__bubbles {
         position: absolute;
-        left: 3%;
-        top: 13.6%;
-        width: 71%;
-        height: auto;
-        aspect-ratio: 426 / 259;
+        left: 10px;
+        top: 80px;
+        width: 227px;
+        height: 182px;
         z-index: 6;
     }
 
@@ -826,70 +827,73 @@ ul { list-style: none; }
     .hero__bubble--1 {
         left: 0;
         top: 0;
-        width: 69.5%;
-        height: 91%;
+        width: 227px;
+        height: 160px;
     }
 
     .hero__bubble--2 {
-        left: 51%;
-        top: 35.5%;
-        width: 49%;
-        height: 64.5%;
+        left: 137px;
+        top: 65px;
+        width: 90px;
+        height: 117px;
     }
 
     .hero__bubble-text {
-        font-size: 22px;
+        font-size: 32px;
         line-height: 1;
     }
 
     .hero__bubble-text--1 {
-        top: 19%;
-        left: 15%;
-        width: 70%;
+        top: 22px;
+        left: 27px;
+        width: 180px;
     }
 
     .hero__bubble-text--2 {
-        top: 22%;
+        top: 18px;
         left: 0;
-        width: 100%;
+        width: 90px;
         text-align: center;
-        line-height: 0.9;
+        line-height: 0.84;
     }
 
     .hero__title {
         display: none;
     }
 
-    /* ===== БЕГУН — по Figma (172/320 = 54%, left 27%, top 50%) ===== */
+    /* ===== БЕГУН — точные координаты из Figma ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
     .hero__runner {
         position: absolute;
-        left: 27%;
-        top: 50%;
-        width: 54%;
-        height: auto;
+        left: 86px;
+        top: 294px;
+        width: 172px;
+        height: 254px;
         max-width: none;
         object-fit: contain;
         z-index: 4;
     }
 
-    /* Кнопка — по Figma (227/320 = 71%, left 47/320 = 14.7%, top 548/588 = 93%) */
+    /* Кнопка — точные координаты из Figma */
     .hero__btn {
         position: absolute;
-        left: 14.7%;
-        top: 93%;
-        width: 71%;
+        left: 47px;
+        top: 548px;
+        width: 227px;
         height: 40px;
         padding: 0;
-        font-size: 13px;
+        font-size: 16px;
         font-weight: 400;
         letter-spacing: 0.03em;
         border-radius: 20px;
         border: 2px solid #000000;
         background: #ADFF3B;
         color: #000000;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         z-index: 50;
     }
 
