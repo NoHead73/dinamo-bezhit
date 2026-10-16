@@ -810,12 +810,12 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* Пузыри — увеличены, левее и выше (по Figma) */
+    /* Пузыри — по Figma (227/320 = 71% ширины) */
     .hero__bubbles {
         position: absolute;
-        left: 2%;
-        top: 8%;
-        width: 88%;
+        left: 3%;
+        top: 13.6%;
+        width: 71%;
         height: auto;
         aspect-ratio: 426 / 259;
         z-index: 6;
@@ -838,7 +838,7 @@ ul { list-style: none; }
     }
 
     .hero__bubble-text {
-        font-size: 28px;
+        font-size: 22px;
         line-height: 1;
     }
 
@@ -860,22 +860,22 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* ===== БЕГУН — МОБИЛЬНАЯ ВЕРСИЯ ===== */
+    /* ===== БЕГУН — по Figma (172/320 = 54%, left 27%, top 50%) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
     .hero__runner {
         position: absolute;
-        left: 14%;
-        top: 46%;
-        width: 72%;
+        left: 27%;
+        top: 50%;
+        width: 54%;
         height: auto;
         max-width: none;
         object-fit: contain;
         z-index: 4;
     }
 
-    /* Кнопка */
+    /* Кнопка — по Figma (227/320 = 71%, left 47/320 = 14.7%, top 548/588 = 93%) */
     .hero__btn {
         position: absolute;
         left: 14.7%;
