@@ -64,7 +64,6 @@ ul { list-style: none; }
     position: relative;
 }
 
-/* Бургер — скрыт на десктопе */
 .header__burger {
     display: none;
     background: none;
@@ -113,7 +112,6 @@ ul { list-style: none; }
 .header__icon { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; }
 .header__icon img { width: 30px; height: 30px; }
 
-/* Мобильное меню — скрыто на десктопе */
 .header__mobile-menu {
     display: none;
     position: absolute;
@@ -333,6 +331,7 @@ ul { list-style: none; }
     display: block;
 }
 
+/* ===== БЕГУН — ДЕСКТОП ===== */
 .hero__runner {
     position: absolute;
     left: 1191px;
@@ -343,6 +342,9 @@ ul { list-style: none; }
     object-fit: contain;
     z-index: 4;
 }
+
+.hero__runner--desktop { display: block; }
+.hero__runner--mobile  { display: none; }
 
 .hero__btn {
     position: absolute;
@@ -759,14 +761,12 @@ ul { list-style: none; }
         height: 100%;
     }
 
-    /* Бургер — показать */
     .header__burger {
         display: flex;
         flex: 0 0 auto;
         order: 1;
     }
 
-    /* Лого — по центру */
     .header__logo {
         position: absolute;
         left: 50%;
@@ -777,10 +777,8 @@ ul { list-style: none; }
 
     .header__logo-img { height: 32px; }
 
-    /* Менюшка — скрыть */
     .header__nav { display: none; }
 
-    /* Иконки — справа */
     .header__icons {
         margin-left: auto;
         order: 3;
@@ -809,17 +807,16 @@ ul { list-style: none; }
         top: auto;
     }
 
-    /* Бумага — скрыть на мобилке (нет в макете) */
     .hero__paper {
         display: none;
     }
 
-    /* Пузыри — по мобильному макету */
+    /* Пузыри — уменьшены (были 70% — стали 62%) */
     .hero__bubbles {
         position: absolute;
-        left: 3%;
-        top: 14%;
-        width: 70%;
+        left: 5%;
+        top: 13%;
+        width: 62%;
         height: auto;
         aspect-ratio: 426 / 259;
         z-index: 6;
@@ -860,12 +857,14 @@ ul { list-style: none; }
         line-height: 0.9;
     }
 
-    /* Текст «Мы объединились» — скрыть на мобилке */
     .hero__title {
         display: none;
     }
 
-    /* Бегун — по центру внизу */
+    /* ===== БЕГУН — МОБИЛЬНАЯ ВЕРСИЯ ===== */
+    .hero__runner--desktop { display: none; }
+    .hero__runner--mobile  { display: block; }
+
     .hero__runner {
         position: absolute;
         left: 27%;
@@ -877,7 +876,7 @@ ul { list-style: none; }
         z-index: 4;
     }
 
-    /* Кнопка — зелёная, снизу, поверх границы */
+    /* Кнопка */
     .hero__btn {
         position: absolute;
         left: 14.7%;
