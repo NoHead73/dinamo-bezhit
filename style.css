@@ -202,26 +202,20 @@ ul { list-style: none; }
     pointer-events: none;
 }
 
-.hero__bubbles {
+.hero__bubble {
     position: absolute;
-    left: 758px;
-    top: 0;
-    width: 426px;
-    height: 259px;
     z-index: 6;
 }
 
-.hero__bubble { position: absolute; }
-
 .hero__bubble--1 {
-    left: 0;
+    left: 758px;
     top: 0;
     width: 296px;
     height: 236px;
 }
 
 .hero__bubble--2 {
-    left: 217px;
+    left: 975px;
     top: 92px;
     width: 209px;
     height: 167px;
@@ -787,8 +781,7 @@ ul { list-style: none; }
     .header__icon { width: 32px; height: 32px; }
     .header__icon img { width: 22px; height: 22px; }
 
-    /* ===== HERO МОБИЛЬНЫЙ ===== */
-    /* Фиксированная сцена 320×588, масштабируется под ширину экрана */
+    /* ===== HERO МОБИЛЬНЫЙ — СЦЕНА 320×588 ===== */
     .hero {
         background: #0033FF;
         width: 100%;
@@ -812,59 +805,59 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* Пузыри — точные координаты из Figma для 320px */
-    .hero__bubbles {
-        position: absolute;
+    /* ===== ПУЗЫРИ (точные координаты из Figma) ===== */
+
+    /* Пузырь 1 — картинка: left 10, top 80, 227×182; отражён по X */
+    .hero__bubble--1 {
         left: 10px;
         top: 80px;
         width: 227px;
         height: 182px;
-        z-index: 6;
     }
 
-    .hero__bubble { position: absolute; }
-
-    .hero__bubble--1 {
-        left: 0;
-        top: 0;
-        width: 227px;
-        height: 160px;
+    /* Пузырь 1 — картинка отражена по X (хвостик влево) */
+    .hero__bubble--1 .hero__bubble-img {
+        transform: scaleX(-1);
     }
 
+    /* Текст «ДИНАМО БЕЖИТ?»: left 54, top 119, 146×53 */
+    .hero__bubble-text--1 {
+        top: 39px;   /* 119 - 80 = 39 внутри пузыря */
+        left: 44px;  /* 54 - 10 = 44 внутри пузыря */
+        width: 146px;
+        height: 53px;
+        font-size: 32px;
+        line-height: 100%;
+    }
+
+    /* Пузырь 2 — картинка: left 137, top 178, 172×138 */
     .hero__bubble--2 {
         left: 137px;
-        top: 65px;
-        width: 90px;
-        height: 117px;
+        top: 178px;
+        width: 172px;
+        height: 138px;
     }
 
-    .hero__bubble-text {
-        font-size: 32px;
-        line-height: 1;
-    }
-
-    .hero__bubble-text--1 {
-        top: 22px;
-        left: 27px;
-        width: 180px;
-    }
-
+    /* Текст «ВСЁ БЕГУТ!»: left 188, top 204, 84×51 */
     .hero__bubble-text--2 {
-        top: 18px;
-        left: 0;
-        width: 90px;
-        text-align: center;
-        line-height: 0.84;
+        top: 26px;   /* 204 - 178 = 26 внутри пузыря */
+        left: 51px;  /* 188 - 137 = 51 внутри пузыря */
+        width: 84px;
+        height: 51px;
+        font-size: 32px;
+        line-height: 83.8%;
+        text-align: left;
     }
 
     .hero__title {
         display: none;
     }
 
-    /* ===== БЕГУН — точные координаты из Figma ===== */
+    /* ===== БЕГУН (точные координаты из Figma) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
+    /* Борзаковский: left 86, top 294, 172×254 */
     .hero__runner {
         position: absolute;
         left: 86px;
@@ -876,7 +869,7 @@ ul { list-style: none; }
         z-index: 4;
     }
 
-    /* Кнопка — точные координаты из Figma */
+    /* ===== КНОПКА (по Figma: 227×40, left 47, top 548) ===== */
     .hero__btn {
         position: absolute;
         left: 47px;
