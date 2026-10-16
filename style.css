@@ -331,7 +331,6 @@ ul { list-style: none; }
     display: block;
 }
 
-/* ===== БЕГУН — ДЕСКТОП ===== */
 .hero__runner {
     position: absolute;
     left: 1191px;
@@ -811,12 +810,12 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* Пузыри — уменьшены (были 70% — стали 62%) */
+    /* Пузыри — увеличены, левее и выше (по Figma) */
     .hero__bubbles {
         position: absolute;
-        left: 5%;
-        top: 13%;
-        width: 62%;
+        left: 2%;
+        top: 8%;
+        width: 88%;
         height: auto;
         aspect-ratio: 426 / 259;
         z-index: 6;
@@ -839,7 +838,7 @@ ul { list-style: none; }
     }
 
     .hero__bubble-text {
-        font-size: 22px;
+        font-size: 28px;
         line-height: 1;
     }
 
@@ -867,9 +866,9 @@ ul { list-style: none; }
 
     .hero__runner {
         position: absolute;
-        left: 27%;
-        top: 50%;
-        width: 54%;
+        left: 14%;
+        top: 46%;
+        width: 72%;
         height: auto;
         max-width: none;
         object-fit: contain;
