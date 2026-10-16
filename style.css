@@ -805,9 +805,9 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* ===== ПУЗЫРИ (точные координаты из Figma) ===== */
+    /* ===== ПУЗЫРИ (обе картинки — bubble-1.png, вторая отражена) ===== */
 
-    /* Пузырь 1 — картинка: left 10, top 80, 227×182; отражён по X */
+    /* Пузырь 1 — левый верхний, картинка отражена по X (хвостик влево) */
     .hero__bubble--1 {
         left: 10px;
         top: 80px;
@@ -815,22 +815,22 @@ ul { list-style: none; }
         height: 182px;
     }
 
-    /* Пузырь 1 — картинка отражена по X (хвостик влево) */
     .hero__bubble--1 .hero__bubble-img {
         transform: scaleX(-1);
     }
 
-    /* Текст «ДИНАМО БЕЖИТ?»: left 54, top 119, 146×53 */
+    /* Текст «ДИНАМО БЕЖИТ?» — позиция внутри пузыря */
     .hero__bubble-text--1 {
-        top: 39px;   /* 119 - 80 = 39 внутри пузыря */
-        left: 44px;  /* 54 - 10 = 44 внутри пузыря */
+        top: 39px;
+        left: 44px;
         width: 146px;
         height: 53px;
         font-size: 32px;
         line-height: 100%;
+        text-align: left;
     }
 
-    /* Пузырь 2 — картинка: left 137, top 178, 172×138 */
+    /* Пузырь 2 — правый нижний, картинка без отражения (хвостик вправо) */
     .hero__bubble--2 {
         left: 137px;
         top: 178px;
@@ -838,10 +838,10 @@ ul { list-style: none; }
         height: 138px;
     }
 
-    /* Текст «ВСЁ БЕГУТ!»: left 188, top 204, 84×51 */
+    /* Текст «ВСЁ БЕГУТ!» — позиция внутри пузыря */
     .hero__bubble-text--2 {
-        top: 26px;   /* 204 - 178 = 26 внутри пузыря */
-        left: 51px;  /* 188 - 137 = 51 внутри пузыря */
+        top: 26px;
+        left: 51px;
         width: 84px;
         height: 51px;
         font-size: 32px;
@@ -853,11 +853,10 @@ ul { list-style: none; }
         display: none;
     }
 
-    /* ===== БЕГУН (точные координаты из Figma) ===== */
+    /* ===== БЕГУН (по Figma: 172×254, left 86, top 294) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
-    /* Борзаковский: left 86, top 294, 172×254 */
     .hero__runner {
         position: absolute;
         left: 86px;
