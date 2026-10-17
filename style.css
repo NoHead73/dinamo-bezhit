@@ -782,12 +782,11 @@ ul { list-style: none; }
     .header__icon img { width: 22px; height: 22px; }
 
     /* ===== HERO МОБИЛЬНЫЙ ===== */
-    /* Высота hero = 738px (центр кнопки 568 × 1.3), масштабируется по ширине /416 */
-    /* 416 = 320 × 1.3 — визуальная ширина сцены после scale(1.3) */
+    /* Высота hero = 738px (центр кнопки 568 × 1.3), масштабируется по ширине /412 */
     .hero {
         background: #0033FF;
         width: 100%;
-        height: calc(738px * (100vw / 416));
+        height: calc(738px * (100vw / 412));
         position: relative;
         overflow: visible;
         z-index: 1;
@@ -869,8 +868,6 @@ ul { list-style: none; }
     }
 
     /* ===== КНОПКА ===== */
-    /* top 548 (низ бегуна), высота 40, центр 568 */
-    /* Низ hero = 568 × 1.3 — кнопка точно на границе */
     .hero__btn {
         position: absolute;
         left: 47px;
