@@ -840,13 +840,13 @@ ul { list-style: none; }
         display: none !important;
     }
 
-    /* ===== ПУЗЫРИ (scale 1.1) ===== */
+    /* ===== ПУЗЫРИ (scale 1.15) ===== */
     .hero__bubble--1 {
         left: 10px;
         top: 80px;
         width: 227px;
         height: 182px;
-        transform: scale(1.1);
+        transform: scale(1.15);
         transform-origin: 150.5px 508px;
         display: flex;
         align-items: center;
@@ -872,15 +872,16 @@ ul { list-style: none; }
         top: 178px;
         width: 172px;
         height: 138px;
-        transform: scale(1.1);
+        transform: scale(1.15);
         transform-origin: 23.5px 410px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
+    /* Хвостик пузыря 2 — убираем зеркалирование, чтобы смотрел вправо */
     .hero__bubble--2 .hero__bubble-img {
-        transform: scaleX(-1);
+        transform: none;
     }
 
     /* Текст «ВСЕ БЕГУТ!» — по центру, поднят на 6px (~1.5 мм) */
@@ -897,7 +898,7 @@ ul { list-style: none; }
         transform: translateY(-6px);
     }
 
-    /* ===== БЕГУН (scale 1.1) ===== */
+    /* ===== БЕГУН (scale 1.15) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
@@ -910,13 +911,13 @@ ul { list-style: none; }
         max-width: none;
         object-fit: contain;
         z-index: 5;
-        transform: scale(1.1);
+        transform: scale(1.15);
         transform-origin: 74.5px 294px;
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
 
-    /* ===== КНОПКА (scale 1.1) ===== */
+    /* ===== КНОПКА (scale 1.15) ===== */
     .hero__btn {
         position: absolute;
         left: 47px;
@@ -939,7 +940,7 @@ ul { list-style: none; }
         align-items: center;
         justify-content: center;
         z-index: 10;
-        transform: scale(1.1);
+        transform: scale(1.15);
         transform-origin: 113.5px 40px;
     }
 
