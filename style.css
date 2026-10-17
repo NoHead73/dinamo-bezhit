@@ -853,7 +853,7 @@ ul { list-style: none; }
         justify-content: center;
     }
 
-    /* Текст «ДИНАМО БЕЖИТ?» — по центру */
+    /* Текст «ДИНАМО БЕЖИТ?» — по центру, поднят на 12px (~3 мм) */
     .hero__bubble-text--1 {
         position: static;
         top: auto;
@@ -864,6 +864,7 @@ ul { list-style: none; }
         line-height: 100%;
         text-align: center;
         display: block;
+        transform: translateY(-12px);
     }
 
     .hero__bubble--2 {
