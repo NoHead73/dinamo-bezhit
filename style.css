@@ -781,12 +781,7 @@ ul { list-style: none; }
     .header__icon { width: 32px; height: 32px; }
     .header__icon img { width: 22px; height: 22px; }
 
-    /* ===== HERO МОБИЛЬНЫЙ =====
-       Используем zoom вместо transform — zoom в Safari работает корректно
-       и не глючит с translate.
-    */
-
-    /* .hero центрирует группу по горизонтали */
+    /* ===== HERO МОБИЛЬНЫЙ ===== */
     .hero {
         background: #0033FF;
         width: 100%;
@@ -798,20 +793,29 @@ ul { list-style: none; }
         justify-content: center;
     }
 
-    /* .hero__stage — группа, которая увеличивается и позиционируется */
+    /* Чёрная полоса внизу — как Rectangle 168 из Figma (22px внутри 588) */
+    /* Высота = 22 × 1.3 (zoom группы) = 28.6px */
+    .hero::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: calc(28.6px * (100vw / 320));
+        background: #000000;
+        z-index: 0;
+    }
+
     .hero__stage {
         width: 320px;
         height: 650px;
         position: relative;
         margin: 0;
-        /* Увеличиваем всю группу через zoom (работает в Safari) */
         zoom: 1.3;
-        /* Пропорционально масштабируем под ширину экрана */
         transform: none;
         overflow: visible;
+        z-index: 2;
     }
-
-    /* Оборачиваем stage в scale через ::before — не нужен, zoom сам сработает */
 
     .hero__paper {
         display: none;
@@ -877,6 +881,8 @@ ul { list-style: none; }
     }
 
     /* ===== КНОПКА ===== */
+    /* top 548 (низ бегуна), высота 40 → центр 568 */
+    /* Низ hero по высоте = 568 × 1.3 (zoom) — совпадает с центром кнопки */
     .hero__btn {
         position: absolute;
         left: 47px;
