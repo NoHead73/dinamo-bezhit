@@ -781,9 +781,8 @@ ul { list-style: none; }
         z-index: 2;
     }
 
-    /* ⬇️ ЛОГОТИП УВЕЛИЧЕН */
+    /* Логотип увеличен */
     .header__logo-img { height: 40px; }
-    /* ⬆️ */
 
     .header__nav { display: none; }
 
@@ -795,14 +794,13 @@ ul { list-style: none; }
 
     .header__icon { width: 32px; height: 32px; }
     .header__icon svg { width: 28px; height: 28px; }
-    
+
     /* ===== HERO МОБИЛЬНЫЙ ===== */
     /*
       Масштаб группы — 1.1 (увеличили на 10% от фигмы).
       Точка привязки — центр низа кнопки: x = 160.5px, y = 588px.
-      Чёрная полоса — отдельный элемент .hero__strip, растянут на 100vw
-      и отцентрирован через left: 50% + translateX(-50%).
-      Кнопка — z-index: 10 (всегда поверх полосы).
+      Чёрная полоса — .hero__strip, растянута на 100vw и отцентрирована.
+      Кнопка — z-index: 10 (поверх полосы).
       Бегун — z-index: 5 (поверх полосы, под кнопкой).
       Пузыри — z-index: 6.
     */
@@ -828,7 +826,7 @@ ul { list-style: none; }
         z-index: 3;
     }
 
-    /* Чёрная полоса — растянута на всю ширину экрана (100vw) */
+    /* Чёрная полоса — на всю ширину экрана */
     .hero__strip {
         display: block;
         position: absolute;
@@ -864,6 +862,7 @@ ul { list-style: none; }
         text-align: left;
     }
 
+    /* Пузырь 2 — флекс-центрирование текста внутри */
     .hero__bubble--2 {
         left: 137px;
         top: 178px;
@@ -871,19 +870,16 @@ ul { list-style: none; }
         height: 138px;
         transform: scale(1.1);
         transform-origin: 23.5px 410px;
-
-        /* ⬇️ центрирование текста внутри пузыря */
         display: flex;
         align-items: center;
         justify-content: center;
-        /* ⬆️ */
     }
 
     .hero__bubble--2 .hero__bubble-img {
         transform: scaleX(-1);
     }
 
-    /* ⬇️ текст «ВСЕ БЕГУТ!» — по центру */
+    /* Текст «ВСЕ БЕГУТ!» — по центру пузыря */
     .hero__bubble-text--2 {
         position: static;
         top: auto;
@@ -895,8 +891,9 @@ ul { list-style: none; }
         text-align: center;
         display: block;
     }
-    /* ⬆️ */
-    
+
+    .hero__title { display: none; }
+
     /* ===== БЕГУН (scale 1.1) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
