@@ -791,14 +791,15 @@ ul { list-style: none; }
     .header__icon { width: 32px; height: 32px; }
     .header__icon svg { width: 28px; height: 28px; }
 
-    /* ===== HERO МОБИЛЬНЫЙ (СТРОГО ПО ФИГМЕ) ===== */
-    /* 
-      hero height: 588px
-      синий фон: 568px
-      чёрный блок: 20px снизу (Rectangle 168 начинается с 566px)
-      бегун: top 294px, height 254px -> заканчивается на 548px
-      кнопка: top 548px, height 40px -> заканчивается на 588px
-      кнопка лежит поверх чёрного блока (z-index выше)
+    /* ===== HERO МОБИЛЬНЫЙ ===== */
+    /*
+      Увеличение группы (пузыри + бегун + кнопка) на 20%.
+      Точка привязки — центр низа кнопки: x = 160.5px, y = 588px.
+      Для каждого элемента рассчитываем transform-origin в его локальных координатах:
+        originX = 160.5 - left
+        originY = 588 - top
+      Так масштабирование идёт от одной точки, и кнопка остаётся на стыке
+      синего и чёрного, а всё остальное растёт вверх и в стороны.
     */
 
     .hero {
@@ -819,7 +820,7 @@ ul { list-style: none; }
         width: 100%;
         height: 20px;
         background: #000000;
-        z-index: 2;
+        z-index: 15;
         pointer-events: none;
     }
 
@@ -831,19 +832,20 @@ ul { list-style: none; }
         left: 50%;
         margin: 0;
         transform: translateX(-50%);
-        transform-origin: top center;
         overflow: visible;
         z-index: 3;
     }
 
     .hero__paper { display: none; }
 
-    /* ===== ПУЗЫРИ ===== */
+    /* ===== ПУЗЫРИ (scale 1.2 от точки x=160.5, y=588) ===== */
     .hero__bubble--1 {
         left: 10px;
         top: 80px;
         width: 227px;
         height: 182px;
+        transform: scale(1.2);
+        transform-origin: 150.5px 508px;
     }
 
     .hero__bubble-text--1 {
@@ -861,6 +863,8 @@ ul { list-style: none; }
         top: 178px;
         width: 172px;
         height: 138px;
+        transform: scale(1.2);
+        transform-origin: 23.5px 410px;
     }
 
     .hero__bubble--2 .hero__bubble-img {
@@ -879,7 +883,7 @@ ul { list-style: none; }
 
     .hero__title { display: none; }
 
-    /* ===== БЕГУН ===== */
+    /* ===== БЕГУН (scale 1.2 от точки x=160.5, y=588) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
 
@@ -891,10 +895,12 @@ ul { list-style: none; }
         height: 254px;
         max-width: none;
         object-fit: contain;
-        z-index: 5; /* выше чёрного блока */
+        z-index: 5;
+        transform: scale(1.2);
+        transform-origin: 74.5px 294px;
     }
 
-    /* ===== КНОПКА ===== */
+    /* ===== КНОПКА (scale 1.2 от точки x=160.5, y=588) ===== */
     .hero__btn {
         position: absolute;
         left: 47px;
@@ -916,7 +922,9 @@ ul { list-style: none; }
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        z-index: 6; /* выше чёрного блока */
+        z-index: 20;
+        transform: scale(1.2);
+        transform-origin: 113.5px 40px;
     }
 
     /* ===== СОБЫТИЯ ===== */
