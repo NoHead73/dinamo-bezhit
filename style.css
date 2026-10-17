@@ -785,36 +785,23 @@ ul { list-style: none; }
     .hero {
         background: #0033FF;
         width: 100%;
-        height: calc(568px * 1.3 * (100vw / 320));
+        height: calc(650px * 1.3 * (100vw / 320));
         position: relative;
         overflow: visible;
         z-index: 1;
-        display: flex;
-        justify-content: center;
     }
 
-    /* Чёрная полоса внизу — как Rectangle 168 из Figma (22px внутри 588) */
-    /* Высота = 22 × 1.3 (zoom группы) = 28.6px */
-    .hero::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: calc(28.6px * (100vw / 320));
-        background: #000000;
-        z-index: 0;
-    }
-
+    /* Внутренняя сцена 320×650 — растягиваем на 130% и центрируем */
     .hero__stage {
         width: 320px;
         height: 650px;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 50%;
         margin: 0;
-        zoom: 1.3;
-        transform: none;
+        transform: translateX(-50%) scale(1.3) translateY(-10%);
+        transform-origin: top center;
         overflow: visible;
-        z-index: 2;
     }
 
     .hero__paper {
@@ -822,7 +809,6 @@ ul { list-style: none; }
     }
 
     /* ===== ПУЗЫРИ ===== */
-
     .hero__bubble--1 {
         left: 10px;
         top: 80px;
@@ -881,8 +867,6 @@ ul { list-style: none; }
     }
 
     /* ===== КНОПКА ===== */
-    /* top 548 (низ бегуна), высота 40 → центр 568 */
-    /* Низ hero по высоте = 568 × 1.3 (zoom) — совпадает с центром кнопки */
     .hero__btn {
         position: absolute;
         left: 47px;
