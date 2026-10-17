@@ -782,16 +782,17 @@ ul { list-style: none; }
     .header__icon img { width: 22px; height: 22px; }
 
     /* ===== HERO МОБИЛЬНЫЙ ===== */
+    /* Высота = 568 × 1.3 (масштаб) → центр кнопки точно на границе синего и чёрного */
     .hero {
         background: #0033FF;
         width: 100%;
-        height: calc(650px * 1.3 * (100vw / 320));
+        height: calc(568px * 1.3 * (100vw / 320));
         position: relative;
         overflow: visible;
         z-index: 1;
     }
 
-    /* Внутренняя сцена 320×650 — растягиваем на 130% и центрируем */
+    /* Сцена 320×650, увеличена на 30%, отцентрирована, без сдвига по Y */
     .hero__stage {
         width: 320px;
         height: 650px;
@@ -799,7 +800,7 @@ ul { list-style: none; }
         top: 0;
         left: 50%;
         margin: 0;
-        transform: translateX(-50%) scale(1.3) translateY(-10%);
+        transform: translateX(-50%) scale(1.3);
         transform-origin: top center;
         overflow: visible;
     }
@@ -867,6 +868,8 @@ ul { list-style: none; }
     }
 
     /* ===== КНОПКА ===== */
+    /* top 548 (низ бегуна), высота 40, центр 568 */
+    /* Низ hero = 568 × 1.3 — кнопка точно на границе */
     .hero__btn {
         position: absolute;
         left: 47px;
