@@ -871,24 +871,32 @@ ul { list-style: none; }
         height: 138px;
         transform: scale(1.1);
         transform-origin: 23.5px 410px;
+
+        /* ⬇️ центрирование текста внутри пузыря */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* ⬆️ */
     }
 
     .hero__bubble--2 .hero__bubble-img {
         transform: scaleX(-1);
     }
 
+    /* ⬇️ текст «ВСЕ БЕГУТ!» — по центру */
     .hero__bubble-text--2 {
-        top: 26px;
-        left: 51px;
-        width: 84px;
-        height: 51px;
+        position: static;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
         font-size: 32px;
         line-height: 83.8%;
-        text-align: left;
+        text-align: center;
+        display: block;
     }
-
-    .hero__title { display: none; }
-
+    /* ⬆️ */
+    
     /* ===== БЕГУН (scale 1.1) ===== */
     .hero__runner--desktop { display: none; }
     .hero__runner--mobile  { display: block; }
