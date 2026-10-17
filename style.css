@@ -781,7 +781,6 @@ ul { list-style: none; }
         z-index: 2;
     }
 
-    /* Логотип увеличен */
     .header__logo-img { height: 40px; }
 
     .header__nav { display: none; }
@@ -796,15 +795,6 @@ ul { list-style: none; }
     .header__icon svg { width: 28px; height: 28px; }
 
     /* ===== HERO МОБИЛЬНЫЙ ===== */
-    /*
-      Масштаб группы — 1.1 (увеличили на 10% от фигмы).
-      Точка привязки — центр низа кнопки: x = 160.5px, y = 588px.
-      Чёрная полоса — .hero__strip, растянута на 100vw и отцентрирована.
-      Кнопка — z-index: 10 (поверх полосы).
-      Бегун — z-index: 5 (поверх полосы, под кнопкой).
-      Пузыри — z-index: 6.
-    */
-
     .hero {
         background: #0033FF;
         width: 100%;
@@ -826,7 +816,6 @@ ul { list-style: none; }
         z-index: 3;
     }
 
-    /* Чёрная полоса — на всю ширину экрана */
     .hero__strip {
         display: block;
         position: absolute;
@@ -841,6 +830,15 @@ ul { list-style: none; }
     }
 
     .hero__paper { display: none; }
+
+    /* ===== ЖЁСТКО СКРЫВАЕМ ДЕСКТОПНЫЙ ЗАГОЛОВОК ===== */
+    .hero__title,
+    .hero__title-my,
+    .hero__title-blue,
+    .hero__title-text,
+    .hero__title-goals {
+        display: none !important;
+    }
 
     /* ===== ПУЗЫРИ (scale 1.1) ===== */
     .hero__bubble--1 {
@@ -862,7 +860,6 @@ ul { list-style: none; }
         text-align: left;
     }
 
-    /* Пузырь 2 — флекс-центрирование текста внутри */
     .hero__bubble--2 {
         left: 137px;
         top: 178px;
@@ -879,7 +876,7 @@ ul { list-style: none; }
         transform: scaleX(-1);
     }
 
-    /* Текст «ВСЕ БЕГУТ!» — по центру пузыря */
+    /* Текст «ВСЕ БЕГУТ!» — по центру, поднят на 6px (~1.5 мм) */
     .hero__bubble-text--2 {
         position: static;
         top: auto;
@@ -890,9 +887,8 @@ ul { list-style: none; }
         line-height: 83.8%;
         text-align: center;
         display: block;
+        transform: translateY(-6px);
     }
-
-    .hero__title { display: none; }
 
     /* ===== БЕГУН (scale 1.1) ===== */
     .hero__runner--desktop { display: none; }
