@@ -781,7 +781,10 @@ ul { list-style: none; }
         z-index: 2;
     }
 
-    .header__logo-img { height: 32px; }
+    /* ⬇️ ЛОГОТИП УВЕЛИЧЕН */
+    .header__logo-img { height: 40px; }
+    /* ⬆️ */
+
     .header__nav { display: none; }
 
     .header__icons {
@@ -792,7 +795,7 @@ ul { list-style: none; }
 
     .header__icon { width: 32px; height: 32px; }
     .header__icon svg { width: 28px; height: 28px; }
-
+    
     /* ===== HERO МОБИЛЬНЫЙ ===== */
     /*
       Масштаб группы — 1.1 (увеличили на 10% от фигмы).
